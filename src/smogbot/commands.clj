@@ -4,8 +4,8 @@
            [smogbot.keyboards :as keyboards]))
 
 (def messages
-  {:start (slurp "resources/start.md")
-   :help (slurp "resources/help.md")})
+  {:start (slurp (.getFile (clojure.java.io/resource "start.md")))
+   :help (slurp (.getFile (clojure.java.io/resource "help.md")))})
 
 (defn reply-with-text
   "Responds with text"

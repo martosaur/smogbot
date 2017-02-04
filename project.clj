@@ -6,9 +6,14 @@
                  [compojure "1.5.1"]
                  [ring/ring-defaults "0.2.1"]
                  [morse "0.2.2"]]
-  :plugins [[lein-ring "0.9.7"]]
+  :plugins [[lein-ring "0.9.7"]
+            [lein-beanstalk "0.2.7"]]
   :ring {:init smogbot.updates/start
          :handler smogbot.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
-                        [ring/ring-mock "0.3.0"]]}})
+                        [ring/ring-mock "0.3.0"]]}}
+  :aws {:beanstalk {:environments [{:name "production"
+                                    :cname-prefix "smogbot-production"
+                                    :env {"BOT_TOKEN" ~(System/getenv "BOT_TOKEN")}}]
+                    :region "eu-west-1"}})
