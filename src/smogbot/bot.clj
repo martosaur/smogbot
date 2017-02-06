@@ -6,4 +6,5 @@
 (defhandler bot-api
             (command "start" message (commands/reply-with-text message :start))
             (command "help" message (commands/reply-with-text message :help))
+            (command "legend" message (commands/reply-with-text message :legend))
             (message message (commands/reply-on-message message)))

@@ -5,7 +5,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [compojure "1.5.1"]
                  [ring/ring-defaults "0.2.1"]
-                 [morse "0.2.2"]]
+                 [morse "0.2.2"]
+                 [clj-http "2.3.0"]]
   :plugins [[lein-ring "0.9.7"]
             [lein-beanstalk "0.2.7"]]
   :ring {:init smogbot.updates/start
@@ -15,5 +16,6 @@
                         [ring/ring-mock "0.3.0"]]}}
   :aws {:beanstalk {:environments [{:name "production"
                                     :cname-prefix "smogbot-production"
-                                    :env {"BOT_TOKEN" ~(System/getenv "BOT_TOKEN")}}]
+                                    :env {"BOT_TOKEN" ~(System/getenv "BOT_TOKEN")
+                                          "API_TOKEN" ~(System/getenv "API_TOKEN")}}]
                     :region "eu-west-1"}})

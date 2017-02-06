@@ -1,0 +1,7 @@
+*Legend*
+
+*Air pollution* is the presence of harmful substances in Earth's atmosphere. It can impact on health of people and other living organisms, as well as on the natural or built environment. Air pollution can likely cause allergies, diseases, and other damages.
+
+The *CAQI* is an index for reporting daily air quality. It shows how clean or polluted the air is, as well as what health effects might be experienced within a few hours or days after breathing polluted air. European scale (CAQI) consists of 5 levels from 0 to 100. As the CAQI increases, an increasingly large percentage of the population is likely to experience adverse health effects.
+
+*Particulate matter (PM)* is a term used to describe the mixture of solid particles and liquid droplets in the air. Some particulates appear naturally (from for example dust storms, forest fires) but it is often the effect of emissions from factories, domestic heating, vehicular pollution, road dust etc. In general, the smaller and lighter a particle is, the longer it will stay in the air. PM2.5 are air pollutants with a diameter of 2.5 micrometers (one thousandth of millimeter) or less. These particles stay suspended in the air that we breathe and they are not dispersed. PM10 are air pollutants to 10 micrometers (one thousandth of millimeter) in diameter. Particles on the order of ~10 micrometers or less can penetrate the deepest part of the lungs such as the bronchioles or alveoli because of their small size.
