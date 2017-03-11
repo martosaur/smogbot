@@ -5,7 +5,7 @@
 
 (defn start
   []
-  (p/start bot-token bot/bot-api))
+  (p/start bot-token bot/updates-worker))
 
 (defn stop
   [channel]

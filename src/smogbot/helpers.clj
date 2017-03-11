@@ -7,3 +7,6 @@
 (def api-token (if-let [token (System/getenv "API_TOKEN")]
                  token
                  (System/getProperty "API_TOKEN")))
+
+(def city-center-location {:latitude 50.0611127
+                           :longitude 19.9379205})

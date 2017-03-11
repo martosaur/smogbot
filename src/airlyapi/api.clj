@@ -9,6 +9,6 @@
   (let [url (str base-url "/v1/mapPoint/measurements")
         resp (http/get url {:accept :json
                             :as :json
-                            :headers {:apikey api-key :user-agent "curl"}
+                            :headers {:apikey api-key}
                             :query-params {:latitude latitude :longitude longitude}})]
     (-> resp :body)))

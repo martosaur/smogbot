@@ -1,4 +1,4 @@
-(defproject smogbot "0.1.0-SNAPSHOT"
+(defproject smogbot "0.2.0-SNAPSHOT"
   :description "smog bot"
   :url "http://example.com/FIXME"
   :min-lein-version "2.0.0"
