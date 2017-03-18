@@ -1,4 +1,5 @@
-(ns smogbot.representation)
+(ns smogbot.representation
+  (require [smogbot.helpers :refer [pm10-norm pm25-norm]]))
 
 (def pollution-messages-map {0 ["No current data"]
                              1 ["Wonderful!" "Great air here today!"]
@@ -19,29 +20,25 @@
   (str
     "*CAQI:* " (when caqi (int caqi)) " *" (pollution-level-message pollution-level) "*"))
 
+(defn percentage-of-norm
+  "Returns a graphical representation for % of norm value"
+  [actual norm]
+  (str (when actual (format "%.0f"(-> actual
+                                       (/ norm)
+                                       float
+                                       (* 100)))) "%"))
+
 (defn pm25-message
   "Returns representation for pm25"
   [pm25]
   (str
-    "*PM25:* " (when pm25 (format "%.2f" pm25)) " μg/m3"))
+    "*PM25:* " (percentage-of-norm pm25 pm25-norm)))
 
 (defn pm10-message
   "Returns representation for pm10"
   [pm10]
   (str
-    "*PM10:* " (when pm10 (format "%.2f" pm10)) " μg/m3"))
-
-(defn pressure-message
-  "Returns representation for pressure"
-  [pressure]
-  (str
-    "*Pressure:* " (when pressure(int (/ pressure 100))) " hPa"))
-
-(defn humidity-message
-  "Returns representation for humidity"
-  [humidity]
-  (str
-    "*Humidity:* " (when humidity (int humidity)) "%"))
+    "*PM10:* " (percentage-of-norm pm10 pm10-norm)))
 
 (defn temperature-message
   "Returns representation for temperature"
@@ -51,15 +48,12 @@
 
 (defn measurements->text
   "Returns a human-readable representation of currentMeasurements"
-  [{caqi :airQualityIndex pm25 :pm25 pm10 :pm10 pressure :pressure humidity :humidity temp :temperature pollution-level :pollutionLevel :as data}]
+  [{caqi :airQualityIndex pm25 :pm25 pm10 :pm10 temp :temperature pollution-level :pollutionLevel :as data}]
   (if (not-empty data)
     (clojure.string/join "\n"
                          (list
                            (caqi-message caqi pollution-level)
                            (pm25-message pm25)
                            (pm10-message pm10)
-                           (pressure-message pressure)
-                           (humidity-message humidity)
-                           (temperature-message temp)
-                           "More info at [airly.eu](https://airly.eu/)"))
+                           (temperature-message temp)))
     "Sorry, no data available for your location"))

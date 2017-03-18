@@ -10,3 +10,7 @@
 
 (def city-center-location {:latitude 50.0611127
                            :longitude 19.9379205})
+
+(def pm10-norm 50)
+
+(def pm25-norm 25)

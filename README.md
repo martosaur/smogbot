@@ -1,6 +1,9 @@
 # smogbot
 
-FIXME
+A [telegram bot][] that fetches air quality data from [airly.eu][]
+
+[telegram bot]: https://t.me/krakowsmogbot
+[airly.eu]: https://airly.eu
 
 ## Prerequisites
 
@@ -14,6 +17,3 @@ To start a web server for the application, run:
 
     lein ring server
 
-## License
-
-Copyright © 2017 FIXME

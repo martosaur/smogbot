@@ -1,6 +1,6 @@
-(defproject smogbot "0.2.0-SNAPSHOT"
+(defproject smogbot "1.0.0"
   :description "smog bot"
-  :url "http://example.com/FIXME"
+  :url "https://t.me/krakowsmogbot"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [compojure "1.5.1"]
