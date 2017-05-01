@@ -49,7 +49,7 @@
 (defn measurements->text
   "Returns a human-readable representation of currentMeasurements"
   [{caqi :airQualityIndex pm25 :pm25 pm10 :pm10 temp :temperature pollution-level :pollutionLevel :as data}]
-  (if (not-empty data)
+  (if (or caqi pm25 pm10 temp pollution-level)
     (clojure.string/join "\n"
                          (list
                            (caqi-message caqi pollution-level)
