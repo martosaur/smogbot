@@ -5,6 +5,8 @@
            [smogbot.representation :as representation]
            [airlyapi.api :as air-api]))
 
+(def send-text (partial api/send-text bot-token))
+
 (def messages
   {:start (slurp (.getFile (clojure.java.io/resource "start.md")))
    :help (slurp (.getFile (clojure.java.io/resource "help.md")))
@@ -19,22 +21,22 @@
 (defn reply-with-text
   "Responds with text"
   [{{chat-id :id} :chat message-id :message_id} command]
-  (api/send-text bot-token chat-id
-                 {:reply_markup keyboards/default-keyboard
-                  :reply_to_message_id message-id
-                  :parse_mode "Markdown"}
-                 (command messages)))
+  (send-text chat-id
+             {:reply_markup keyboards/default-keyboard
+              :reply_to_message_id message-id
+              :parse_mode "Markdown"}
+             (command messages)))
 
 (defn reply-with-data
   "Responds with the air conditions data"
   [{{chat-id :id} :chat message-id :message_id} location]
-  (api/send-text bot-token chat-id
-                 {:reply_to_message_id message-id
-                  :disable_web_page_preview true
-                  :parse_mode "Markdown"}
-                 (-> location
-                     get-map-point-conditions
-                     representation/measurements->text)))
+  (send-text chat-id
+             {:reply_to_message_id message-id
+              :disable_web_page_preview true
+              :parse_mode "Markdown"}
+             (-> location
+                 get-map-point-conditions
+                 representation/measurements->text)))
 
 (defn reply-on-message
   "Responds on a message"
