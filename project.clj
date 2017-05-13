@@ -1,11 +1,11 @@
-(defproject smogbot "1.0.1"
+(defproject smogbot "1.0.2"
   :description "smog bot"
   :url "https://t.me/krakowsmogbot"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [compojure "1.5.1"]
                  [ring/ring-defaults "0.2.1"]
-                 [morse "0.2.4"]
+                 [morse "0.2.5-SNAPSHOT"]
                  [clj-http "2.3.0"]]
   :plugins [[lein-ring "0.9.7"]
             [lein-beanstalk "0.2.7"]]
