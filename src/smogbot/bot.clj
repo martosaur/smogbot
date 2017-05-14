@@ -13,11 +13,11 @@
 
 (defn track-incoming-message
   "Sends info about incoming message to botmetrics"
-  [{{chat-id :id username :username} :chat text :text date :date}]
+  [{{chat-id :id username :username} :chat text :text date :date location :location}]
   (let [user {:id chat-id
               :name username}
         message {:timestamp date
-                 :text text}]
+                 :text (or text (str location))}]
     (post-incoming-message-to-analytics user message)))
 
 (defn updates-worker
