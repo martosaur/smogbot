@@ -1,4 +1,4 @@
-(defproject smogbot "1.0.2"
+(defproject smogbot "1.0.3"
   :description "smog bot"
   :url "https://t.me/krakowsmogbot"
   :min-lein-version "2.0.0"
@@ -18,9 +18,11 @@
   :aws {:beanstalk {:environments [{:name "production"
                                     :cname-prefix "smogbot-production"
                                     :env {"BOT_TOKEN" ~(System/getenv "BOT_TOKEN")
-                                          "API_TOKEN" ~(System/getenv "API_TOKEN")}}
+                                          "API_TOKEN" ~(System/getenv "API_TOKEN")
+                                          "ANALYTICS_TOKEN" ~(System/getenv "ANALYTICS_TOKEN")}}
                                    {:name "staging"
                                     :cname-prefix "smogbot-staging"
                                     :env {"BOT_TOKEN" ~(System/getenv "BOT_TOKEN")
-                                          "API_TOKEN" ~(System/getenv "API_TOKEN")}}]
+                                          "API_TOKEN" ~(System/getenv "API_TOKEN")
+                                          "ANALYTICS_TOKEN" ~(System/getenv "ANALYTICS_TOKEN")}}]
                     :region "eu-west-1"}})
